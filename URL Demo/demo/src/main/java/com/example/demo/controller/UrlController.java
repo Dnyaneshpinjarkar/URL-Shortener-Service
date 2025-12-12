@@ -19,7 +19,7 @@ public class UrlController {
 
 
 
-    // POST: /shorten
+    
     @PostMapping("/shorten")
     public ResponseEntity<?> shorten(@RequestParam String url,
                                      @RequestParam(required = false) String expiry)
@@ -32,7 +32,7 @@ public class UrlController {
         return ResponseEntity.ok(service.buildShortUrl(u.getShortCode()));
     }
 
-    // GET: /ABC123 → redirect
+    
     @GetMapping("/{code}")
     public ResponseEntity<?> redirect(@PathVariable String code)
     {
@@ -43,9 +43,9 @@ public class UrlController {
                 .build();
     }
 
-    // GET: /analytics/code
     @GetMapping("/analytics/{code}")
     public Url analytics(@PathVariable String code) {
         return service.analytics(code);
     }
 }
+
